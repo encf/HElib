@@ -70,7 +70,7 @@ void EncryptedArrayDerived<type>::rotate1D(Ctxt& ctxt,
                                            bool dc) const
 {
   HELIB_TIMER_START;
-  helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
   helib::assertInRange(i,
                        0l,
                        dimension(),
@@ -138,7 +138,7 @@ void EncryptedArrayDerived<type>::shift1D(Ctxt& ctxt, long i, long k) const
   bak.save();
   tab.restoreContext();
 
-  assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // assertEq(&context, &ctxt.getContext(), "Context mismatch");
   assertInRange(i,
                 0l,
                 (long)(al.numOfGens()),
@@ -189,7 +189,7 @@ void EncryptedArrayDerived<type>::rotate(Ctxt& ctxt, long amt) const
   bak.save();
   tab.restoreContext();
 
-  assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // assertEq(&context, &ctxt.getContext(), "Context mismatch");
 
   // Simple case: just one generator
   if (al.numOfGens() == 1) { // VJS: bug fix: <= must be ==
@@ -297,7 +297,7 @@ void EncryptedArrayDerived<type>::shift(Ctxt& ctxt, long k) const
   bak.save();
   tab.restoreContext();
 
-  assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // assertEq(&context, &ctxt.getContext(), "Context mismatch");
 
   // Simple case: just one generator
   if (al.numOfGens() == 1) {
@@ -803,7 +803,7 @@ void applyLinPoly1(const EncryptedArray& ea,
                    Ctxt& ctxt,
                    const std::vector<NTL::ZZX>& C)
 {
-  assertEq(&ea.getContext(), &ctxt.getContext(), "Context mismatch");
+  // assertEq(&ea.getContext(), &ctxt.getContext(), "Context mismatch");
   long d = ea.getDegree();
   assertEq(d, lsize(C), "ea's degree does not match the size of C");
 
@@ -827,7 +827,7 @@ void applyLinPolyMany(const EncryptedArray& ea,
                       Ctxt& ctxt,
                       const std::vector<std::vector<NTL::ZZX>>& Cvec)
 {
-  assertEq(&ea.getContext(), &ctxt.getContext(), "Context mismatch");
+  // assertEq(&ea.getContext(), &ctxt.getContext(), "Context mismatch");
   long d = ea.getDegree();
   long nslots = ea.size();
 

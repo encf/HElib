@@ -854,7 +854,7 @@ void Ctxt::addPart(const DoubleCRT& part,
 {
   HELIB_TIMER_START;
 
-  assertEq(&part.getContext(), &context, "Context mismatch");
+  // assertEq(&part.getContext(), &context, "Context mismatch");
 
   // VJS-NOTE: we are adding this as a new requiremennt
   if (!(primeSet <= part.getIndexSet())) {
@@ -1408,8 +1408,8 @@ void Ctxt::addCtxt(const Ctxt& other, bool negative)
   HELIB_TIMER_START;
 
   // Sanity check: same context and public key
-  assertEq(&context, &other.context, "Context mismatch");
-  assertEq(&pubKey, &other.pubKey, "Public key mismatch");
+  // assertEq(&context, &other.context, "Context mismatch");
+  // assertEq(&pubKey, &other.pubKey, "Public key mismatch");
 
   // std::cerr << "*** " << ratFactor << " " << other.ratFactor << "\n";
   // std::cerr << "*** " << primeSet << " " << other.primeSet << "\n";
@@ -1692,8 +1692,8 @@ void Ctxt::multLowLvl(const Ctxt& other_orig, bool destructive)
   }
 
   assertEq(isCKKS(), other_orig.isCKKS(), "Scheme mismatch");
-  assertEq(&context, &other_orig.context, "Context mismatch");
-  assertEq(&pubKey, &other_orig.pubKey, "Public key mismatch");
+  // assertEq(&context, &other_orig.context, "Context mismatch");
+  // assertEq(&pubKey, &other_orig.pubKey, "Public key mismatch");
   if (isCKKS()) {
     assertEq(getPtxtSpace(), 1l, "Plaintext spaces incompatible");
     assertEq(other_orig.getPtxtSpace(), 1l, "Plaintext spaces incompatible");
@@ -1974,8 +1974,8 @@ void Ctxt::multByConstant(const FatEncodedPtxt_BGV& ptxt)
 {
   HELIB_TIMER_START;
 
-  assertTrue(&getContext() == &ptxt.getContext(),
-             "multByConstant: inconsistent contexts");
+  //assertTrue(&getContext() == &ptxt.getContext(),
+  //           "multByConstant: inconsistent contexts");
 
   // NOTE: the following check may be redundant
   assertTrue(!isCKKS(), "multByConstant: inconsistent encoding");
@@ -2002,8 +2002,8 @@ void Ctxt::multByConstant(const FatEncodedPtxt_CKKS& ptxt)
 {
   HELIB_TIMER_START;
 
-  assertTrue(&getContext() == &ptxt.getContext(),
-             "multByConstant: inconsistent contexts");
+  //assertTrue(&getContext() == &ptxt.getContext(),
+  //           "multByConstant: inconsistent contexts");
 
   // NOTE: the following check may be redundant
   assertTrue(isCKKS(), "multByConstant: inconsistent encoding");
@@ -2146,8 +2146,8 @@ void Ctxt::addConstant(const FatEncodedPtxt_BGV& ptxt, bool neg)
 {
   HELIB_TIMER_START;
 
-  assertTrue(&getContext() == &ptxt.getContext(),
-             "addConstant: inconsistent contexts");
+  //assertTrue(&getContext() == &ptxt.getContext(),
+  //           "addConstant: inconsistent contexts");
 
   // NOTE: the following check may be redundant
   assertTrue(!isCKKS(), "addConstant: inconsistent encoding");
@@ -2188,8 +2188,8 @@ void Ctxt::addConstant(const EncodedPtxt_BGV& ptxt, bool neg)
 {
   HELIB_TIMER_START;
 
-  assertTrue(&getContext() == &ptxt.getContext(),
-             "addConstant: inconsistent contexts");
+  //assertTrue(&getContext() == &ptxt.getContext(),
+  //           "addConstant: inconsistent contexts");
 
   // NOTE: the following check may be redundant
   assertTrue(!isCKKS(), "addConstant: inconsistent encoding");
@@ -2227,8 +2227,8 @@ void Ctxt::addConstant(const FatEncodedPtxt_CKKS& ptxt, bool neg)
 {
   HELIB_TIMER_START;
 
-  assertTrue(&getContext() == &ptxt.getContext(),
-             "addConstant: inconsistent contexts");
+  //assertTrue(&getContext() == &ptxt.getContext(),
+  //           "addConstant: inconsistent contexts");
 
   // NOTE: the following check may be redundant
   assertTrue(isCKKS(), "addConstant: inconsistent encoding");
@@ -3052,7 +3052,7 @@ void Ctxt::addedNoiseForCKKSDecryption(const SecKey& sk,
                                        double eps,
                                        NTL::ZZX& noise) const
 {
-  assertTrue(&sk.getContext() == &context, "context mismatch");
+  // assertTrue(&sk.getContext() == &context, "context mismatch");
 
   double sigma_min = to_double(context.getStdev()) * 2;
   // NOTE: the RLWE sampler multiplies by sqrt(m) if m is

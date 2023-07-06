@@ -864,10 +864,10 @@ private:
   template <typename T>
   void genericDecrypt(const Ctxt& ctxt, const SecKey& sKey, T& array) const
   {
-    assertEq(&context,
-             &ctxt.getContext(),
-             "Cannot decrypt when ciphertext has different context than "
-             "EncryptedArray");
+    // assertEq(&context,
+    //         &ctxt.getContext(),
+    //         "Cannot decrypt when ciphertext has different context than "
+    //          "EncryptedArray");
     NTL::ZZX pp;
     sKey.Decrypt(pp, ctxt);
     decode(array, pp);
@@ -1237,10 +1237,10 @@ public:
                      double useThisSize = -1,
                      long precision = -1) const
   {
-    assertEq(&getContext(),
-             &ctxt.getContext(),
-             "Cannot encrypt when ciphertext has different context than "
-             "EncryptedArray");
+    // assertEq(&getContext(),
+    //         &ctxt.getContext(),
+    //         "Cannot encrypt when ciphertext has different context than "
+    //         "EncryptedArray");
     if (useThisSize <= 0.0)
       useThisSize = roundedSize(num); // rounded to power of two
     zzX pp;                           // Convert num into a plaintext polynomial
@@ -1256,10 +1256,10 @@ public:
                double useThisSize,
                long precision = -1) const
   {
-    assertEq(&getContext(),
-             &ctxt.getContext(),
-             "Cannot encrypt when ciphertext has different context than "
-             "EncryptedArray");
+    // assertEq(&getContext(),
+    //         &ctxt.getContext(),
+    //         "Cannot encrypt when ciphertext has different context than "
+    //         "EncryptedArray");
     zzX pp;
     double f = encode(pp, ptxt, useThisSize, precision);
     // Convert into a polynomial

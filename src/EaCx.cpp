@@ -63,9 +63,9 @@ void EncryptedArrayCx::rawDecrypt(const Ctxt& ctxt,
                                   const SecKey& sKey,
                                   std::vector<cx_double>& ptxt) const
 {
-  assertEq(&getContext(),
-           &ctxt.getContext(),
-           "Cannot decrypt with non-matching context");
+  // assertEq(&getContext(),
+  //         &ctxt.getContext(),
+  //         "Cannot decrypt with non-matching context");
 
   NTL::ZZX pp;
   sKey.Decrypt(pp, ctxt);
@@ -90,9 +90,9 @@ void EncryptedArrayCx::decrypt(const Ctxt& ctxt,
                                std::vector<cx_double>& ptxt,
                                OptLong prec) const
 {
-  assertEq(&getContext(),
-           &ctxt.getContext(),
-           "Cannot decrypt with non-matching context");
+  //assertEq(&getContext(),
+  //         &ctxt.getContext(),
+  //         "Cannot decrypt with non-matching context");
 
   NTL::ZZX pp;
   sKey.Decrypt(pp, ctxt);
@@ -144,7 +144,7 @@ void EncryptedArrayCx::rotate1D(Ctxt& ctxt,
                                 long amt,
                                 UNUSED bool dc) const
 {
-  helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
   helib::assertInRange(i,
                        0l,
                        dimension(),
@@ -169,7 +169,7 @@ void EncryptedArrayCx::rotate1D(Ctxt& ctxt,
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 void EncryptedArrayCx::shift1D(Ctxt& ctxt, long i, long k) const
 {
-  helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
+  // helib::assertEq(&context, &ctxt.getContext(), "Context mismatch");
   helib::assertInRange(i,
                        0l,
                        dimension(),

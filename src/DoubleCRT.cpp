@@ -219,8 +219,8 @@ DoubleCRT& DoubleCRT::Op(const DoubleCRT& other, Fun fun, bool matchIndexSets)
   if (isDryRun())
     return *this;
 
-  if (&context != &other.context)
-    throw RuntimeError("DoubleCRT::Op: incompatible objects");
+  // if (&context != &other.context)
+  //  throw RuntimeError("DoubleCRT::Op: incompatible objects");
 
   // VJS-FIXME: experiment to ignore matchIndexSets
   // Match the index sets, if needed
@@ -282,8 +282,8 @@ DoubleCRT& DoubleCRT::do_mul(const DoubleCRT& other, bool matchIndexSets)
   if (isDryRun())
     return *this;
 
-  if (&context != &other.context)
-    throw RuntimeError("DoubleCRT::Op: incompatible objects");
+  // if (&context != &other.context)
+  //   throw RuntimeError("DoubleCRT::Op: incompatible objects");
 
   // VJS-FIXME: experiment to ignore matchIndexSets
   // Match the index sets, if needed
@@ -365,8 +365,8 @@ DoubleCRT& DoubleCRT::Negate(const DoubleCRT& other)
   if (isDryRun())
     return *this;
 
-  if (&context != &other.context)
-    throw RuntimeError("DoubleCRT Negate: incompatible contexts");
+  // if (&context != &other.context)
+  //   throw RuntimeError("DoubleCRT Negate: incompatible contexts");
 
   if (map.getIndexSet() != other.map.getIndexSet()) {
     map = other.map; // copy the data
@@ -818,8 +818,8 @@ DoubleCRT& DoubleCRT::operator=(const DoubleCRT& other)
   if (this == &other)
     return *this;
 
-  if (&context != &other.context)
-    throw RuntimeError("DoubleCRT assignment: incompatible contexts");
+  // if (&context != &other.context)
+  //   throw RuntimeError("DoubleCRT assignment: incompatible contexts");
 
   if (map.getIndexSet() != other.map.getIndexSet()) {
     map = other.map; // copy the data

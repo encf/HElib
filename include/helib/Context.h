@@ -657,7 +657,7 @@ public:
    * @brief Deleted default constructor.
    **/
   Context() = delete;
-
+  //Context();
   /**
    * @brief Deleted copy constructor.
    * @param other `Context` to copy.
