@@ -18,11 +18,12 @@
 #include <NTL/vector.h>
 #include <NTL/lzz_pX.h>
 #include <NTL/GF2X.h>
+#include <cstdint>
 
 namespace helib {
 
 class PAlgebra;
-typedef NTL::Vec<long> zzX;
+typedef NTL::Vec<int64_t> zzX;
 
 inline bool IsZero(const zzX& a) { return a.length() == 0; }
 inline void clear(zzX& a) { a.SetLength(0); }
